@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaki Nusantara — Idle Hiking</title>
+  <meta name="description" content="Game idle 2D side-scrolling pendakian gunung-gunung Indonesia dengan parallax background." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <main id="stage">
+      <canvas id="game"></canvas>
+
+      <div id="hud">
+        <div class="hud-top">
+          <button id="soundBtn" class="hud-btn" title="Suara Alam & Musik" aria-label="Toggle Sound">🔊</button>
+          <div class="card money">
+            <span class="ico">💰</span>
+            <div>
+              <div class="label">Rupiah</div>
+              <div id="money" class="value">Rp 0</div>
+              <div id="income" class="sub"></div>
+            </div>
+          </div>
+
+          <div class="card mtn">
+            <div class="row">
+              <div>
+                <div class="label" id="mtnLoc">-</div>
+                <div class="value" id="mtnName">-</div>
+              </div>
+              <div class="alt"><span id="alt">0</span><small> mdpl</small></div>
+            </div>
+            <div class="progress"><div id="progFill"></div><div id="ticks"></div></div>
+            <div class="sub" id="nextPos">-</div>
+          </div>
+
+          <div class="card stamina">
+            <div class="row">
+              <div class="label">Stamina</div>
+              <div class="label" id="stateText">Berjalan</div>
+            </div>
+            <div class="bar"><div id="stamFill"></div></div>
+            <div class="sub" id="rateText"></div>
+          </div>
+        </div>
+
+        <div id="toast"></div>
+        <div id="tapHint">Klik / tap layar untuk <b>Semangat!</b> ⚡</div>
+      </div>
+    </main>
+
+    <aside id="panel">
+      <div class="brand">⛰️ <span>Pendaki</span> Nusantara</div>
+      <nav class="tabs">
+        <button data-tab="gear" class="active">🎒 Perlengkapan</button>
+        <button data-tab="mountains">🗻 Gunung</button>
+        <button data-tab="log">📜 Catatan</button>
+      </nav>
+      <section id="tab-gear" class="tab active"></section>
+      <section id="tab-mountains" class="tab"></section>
+      <section id="tab-log" class="tab">
+        <div id="stats"></div>
+        <h4>Catatan Perjalanan</h4>
+        <ul id="log"></ul>
+        <button id="resetBtn" class="danger">Reset Progres</button>
+      </section>
+    </aside>
+  </div>
+
+  <div id="modal" class="hidden">
+    <div class="modal-box">
+      <div id="modalContent"></div>
+      <div id="modalBtns"></div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
